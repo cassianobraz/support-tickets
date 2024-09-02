@@ -1,0 +1,38 @@
+###! Variable
+@baseUrl = http://localhost:3333
+
+###! Create
+POST {{baseUrl}}/tickets
+Content-Type: application/json
+
+{
+  "equipment": "equipment",
+  "description": "description",
+  "user_name": "name"
+}
+
+###! Index - listener full
+GET {{baseUrl}}/tickets
+
+###! Index - listener with params "open || closed"
+GET {{baseUrl}}/tickets?status=closed
+
+###! Update - ticket
+PUT {{baseUrl}}/tickets/{id}
+Content-Type: application/json
+
+{
+  "equipment": "equipment",
+  "description": "description"
+}
+
+###! Closed - ticket
+PATCH {{baseUrl}}/tickets/{id}/close
+Content-Type: application/json
+
+{
+  "solution": "solution"
+}
+
+###! Delete - ticket
+DELETE {{baseUrl}}/tickets/{id}
